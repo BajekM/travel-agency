@@ -16,30 +16,10 @@ import Countries from './components/views/Countries/CountriesContainer';
 import parseTrips from './utils/parseTrips';
 import {setMultipleStates} from './redux/globalRedux';
 
-function mapStyles(styles) {
-  return {
-    opacity: styles.opacity,
-    transform: `translateY(${styles.translate}px)`,
-  };
-}
+import styles from './styles/App.scss';
 
-const bounceTransition = {
-  // start in a transparent, upscaled state
-  atEnter: {
-    opacity: 0,
-    scale: 200,
-  },
-  // leave in a transparent, downscaled state
-  atLeave: {
-    opacity: 0,
-    scale: 600,
-  },
-  // and rest at an opaque, normally-scaled state
-  atActive: {
-    opacity: 1,
-    scale: 0,
-  },
-};
+
+
 
 class App extends React.Component {
   static propTypes = {
@@ -65,11 +45,10 @@ class App extends React.Component {
       <BrowserRouter>
         <MainLayout>
           <AnimatedSwitch
-            atEnter={bounceTransition.atEnter}
-            atLeave={bounceTransition.atLeave}
-            atActive={bounceTransition.atActive}
-            className="switch-wrapper"
-            mapStyles={mapStyles}
+            atEnter={{ opacity: 0 }}
+            atLeave={{ opacity: 0 }}
+            atActive={{ opacity: 1 }}
+            className={styles.switchWrapper}
           >
             <Route exact path='/' component={Home} />
             <Route exact path='/trips' component={Trips} />

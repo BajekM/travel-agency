@@ -1,0 +1,13 @@
+.switchWrapper {
+  position: relative;
+}
+
+.switchWrapper > div {
+  animation-name: moveUp;
+  animation-duration: 2s;
+}
+
+@keyframes moveUp {
+  from { margin-top: 100px; }
+  to { margin-top: 0px}
+}
