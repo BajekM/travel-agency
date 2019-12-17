@@ -81,7 +81,7 @@ export const getFilteredTrips = ({trips, filters},) => {
 
   }
 
-  console.log('Sorted', sorted);
+  // console.log('Sorted', sorted);
 
   output = sorted;
 
