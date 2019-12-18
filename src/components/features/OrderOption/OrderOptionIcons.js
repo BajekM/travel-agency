@@ -6,7 +6,7 @@ import {formatPrice} from '../../../utils/formatPrice';
 
 class OrderOptionIcons extends React.Component {
   render() {
-    const {values, setOptionValue, required} = this.props;
+    const {values, setOptionValue, required, currentValue} = this.props;
     return (
       <div className={styles.component}>
         {required ? '' : (
@@ -19,7 +19,7 @@ class OrderOptionIcons extends React.Component {
         )}
         {values.map(value => (
           <div
-            className={styles.icon}
+            className={((value.id === currentValue) ? styles.iconActive : '') + ' ' + styles.icon}
             key={value.id}
             onClick={() => setOptionValue(value.id)}>
             <Icon name={value.icon}/>
@@ -37,6 +37,7 @@ OrderOptionIcons.propTypes = {
   values: PropTypes.array,
   setOptionValue: PropTypes.func,
   required: PropTypes.bool,
+  currentValue: PropTypes.string,
 
 };
 

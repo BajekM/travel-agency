@@ -13,7 +13,7 @@ class OrderSummary extends React.Component {
 
     // console.log(options);
     return (
-      <h2 className={styles.component}>Total: <strong>{calculateTotal(formatPrice(tripCost), options)}</strong></h2>
+      <h2 className={styles.component}>Total: <strong>{formatPrice(calculateTotal(formatPrice(tripCost), options).toFixed(2))}</strong></h2>
     );
   }
 }
