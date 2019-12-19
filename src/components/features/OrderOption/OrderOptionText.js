@@ -6,7 +6,7 @@ class OrderOptionText extends React.Component {
   render() {
     const {currentValue, setOptionValue} = this.props;
     return (
-      <div className={styles.number}>
+      <div className={styles.text}>
         <input
           className={styles.inputSmall}
           type="text"
