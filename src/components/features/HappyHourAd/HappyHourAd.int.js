@@ -12,25 +12,9 @@ const mockProps = {
   promoDescription: 'description',
 };
 
-const component = shallow(<HappyHourAd {...mockProps} />);
+// const component = shallow(<HappyHourAd {...mockProps} />);
 
-describe('Component HappyHourAd', () => {
-  it('should render without crashing', () => {
-    // const component = shallow(<HappyHourAd />);
-    expect(component).toBeTruthy();
-  });
 
-  it('should render heading and description', () => {
-    // const component = shallow(<HappyHourAd />);
-    expect(component.exists(select.title)).toEqual(true);
-    expect(component.exists(select.promoDescription)).toEqual(true);
-  });
-
-  it('should take header from props', () => {
-    const renderedTitle = component.find('h3.title').text();
-    expect(renderedTitle).toEqual(mockProps.title);
-  });
-});
 
 const trueDate = Date;
 const mockDate = customDate => class extends Date {
@@ -94,13 +78,5 @@ describe('Component HappyHourAd with mocked Date and delay', () => {
   checkDescriptionAfterTime('13:00:00', 60 * 60, 22 * 60 * 60 + '');
 });
 
-describe('Component HappyHourAd with mocked Date(no happy hour)', () => {
-  checkDescriptionAtTime('12:00:00', mockProps.promoDescription);
-  checkDescriptionAtTime('12:59:59', mockProps.promoDescription);
-});
-
-describe('Component HappyHourAd before 12:00 and 1 sec delay', () => {
-  checkDescriptionAfterTime('11:59:59', 1,  mockProps.promoDescription);
-});
 
 
